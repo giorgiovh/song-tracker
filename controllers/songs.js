@@ -1,0 +1,53 @@
+import { Song } from './../models/song.js'
+
+function newSong(req, res) {
+    res.render('songs/new')
+}
+
+function index(req, res) {
+    Song.find({}, function(err, songs) {
+        res.render('songs/index', {
+            songs
+        })
+    })
+}
+
+function create(req, res) {
+    Song.create(req.body, function(err, song) {
+        res.redirect('/songs')
+    })
+}
+
+function show(req, res) {
+    Song.findById(req.params.id, function(err, song) {
+        res.render('songs/show', {
+            song
+        })
+    })
+}
+
+function indexLearned(req, res) {
+    Song.find({status: 'Learned'}, function(err, songs) {
+        res.render('songs/learned', {
+            songs
+        })
+    })
+}
+
+function indexToLearn(req, res) {
+    Song.find({status: 'To Learn'}, function(err, songs) {
+        res.render('songs/to-learn', {
+            songs
+        })
+    })
+}
+
+
+export {
+    newSong as new,
+    index,
+    create,
+    show,
+    indexLearned,
+    indexToLearn
+}

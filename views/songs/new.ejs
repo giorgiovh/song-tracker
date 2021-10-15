@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song Tracker</title>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/songs/new">Add</a>
+        <a href="/songs">All</a>
+        <a href="/songs/learned">Learned</a>
+        <a href="/songs/to-learn">To Learn</a>
+      </nav>
+
+    <h1>Add Song</h1>
+    <form action="/songs" method="post">
+        <label>Title</label>
+        <input type="text" name="title">
+        <label>Artist</label>
+        <input type="text" name="artist">
+        <label>Image URL</label>
+        <input type="text" name="imageURL">
+        <label>Key</label>
+        <input type="text" name="key">
+        <label>Chords</label>
+        <input type="text" name="chords">
+        <label>Learned</label>
+        <input type="checkbox" name="status" value="Learned" onclick="return selectOnlyLearned()">
+        <label>To Learn</label>
+        <input type="checkbox" name="status" value="To Learn" onclick="return selectOnlyToLearn()">
+        <button type="submit">Add</button>
+    </form>
+
+    <script>
+        function selectOnlyLearned() {
+            statusEls = document.getElementsByName('status');
+            if (statusEls[1].checked === true) {
+                statusEls[1].checked = false;
+            }
+        }
+        function selectOnlyToLearn() {
+            statusEls = document.getElementsByName('status');
+            if (statusEls[0].checked === true) {
+                statusEls[0].checked = false;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -8,6 +8,54 @@
 </head>
 <body>
     <h1>Edit Song</h1>
+
+    <form action="/songs/<%= song._id %>?_method=PUT" method="post">
+        <label>Title</label>
+        <input
+            type="text"
+            name="title"
+            value="<%= song.title %>"
+        >
+        <label>Artist</label>
+        <input
+            type="text"
+            name="artist"
+            value="<%= song.artist %>"
+        >
+        <label>Image URL</label>
+        <input
+            type="text"
+            name="imageURL"
+            value="<%= song.imageURL %>"
+        >
+        <label>Key</label>
+        <input
+            type="text"
+            name="key"
+            value="<%= song.key %>"    
+        >
+        <label>Chords</label>
+        <input
+            type="text"
+            name="chords"
+            value="<%= song.chords %>"
+        >
+        <label>Learned</label>
+        <input
+            type="checkbox"
+            name="status"
+            value="Learned"
+            onclick="return selectOnlyLearned()"
+        >
+        <label>To Learn</label>
+        <input
+            type="checkbox"
+            name="status"
+            value="To Learn"
+            onclick="return selectOnlyToLearn()"
+        >
+        <button type="submit">Submit</button>
+    </form>
     
 </body>
 </html>

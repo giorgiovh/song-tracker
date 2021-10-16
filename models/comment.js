@@ -7,13 +7,16 @@ const commentSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Song'
     },
-    //**NEED TO ADD AUTHOR PROPERTY HERE**/
+    author: {
+        type: Schema.Types.ObjectId,
+        ref: 'Profile'
+    },
     content: {
         type: String
     }
 })
 
-const Comment = mongoose.model('Song', commentSchema);
+const Comment = mongoose.model('Comment', commentSchema);
 
 export {
     Comment

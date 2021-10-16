@@ -2,16 +2,6 @@
 <%- include('./partials/nav') %>
 
 <main>
-  <h1>hello, <%= user ? user.profile.name : "friend" %></h1>
-  <% if (user?.profile.avatar) { %>
-    <div>
-      <img 
-        src="<%= user.profile.avatar %>" 
-        alt="<%= user.profile.name %> avatar"
-      >
-    </div>
-  <% } %>
-
   <% if (user) { %>      
     <nav>
       <a href="/">Home</a>
@@ -22,7 +12,15 @@
     </nav>
   <% } %>
 
-
+  <h1>hello, <%= user ? user.profile.name : "friend" %></h1>
+  <% if (user?.profile.avatar) { %>
+    <div>
+      <img 
+        src="<%= user.profile.avatar %>" 
+        alt="<%= user.profile.name %> avatar"
+      >
+    </div>
+  <% } %>
 
   <h1>Latest Activity</h1>
   

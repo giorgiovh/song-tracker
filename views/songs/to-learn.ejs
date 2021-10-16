@@ -29,6 +29,11 @@
              <tr>
                  <td><a href="/songs/<%= song._id %>"><%= song.title %></a></td>
                  <td><%= song.artist %></td>
+                 <td>
+                    <form action="/songs/<%= song._id %>/?_method=DELETE" method="post">
+                       <button type="submit">X</button>
+                   </form>
+                </td>
             </tr>
             <% }) %>
         </tbody>

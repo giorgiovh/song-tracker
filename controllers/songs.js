@@ -72,6 +72,15 @@ function edit(req, res) {
     })
 }
 
+function update(req, res) {
+    Song.findByIdAndUpdate(req.params.id, req.body, {new: true}).then(song => {
+        res.redirect(`/songs/${song._id}`)
+    })
+    .catch(err => {
+        console.log(err);
+        res.redirect('/')
+    })
+}
 
 export {
     newSong as new,
@@ -83,5 +92,6 @@ export {
     deleteSong as delete,
     deleteLearned,
     deleteToLearn,
-    edit
+    edit,
+    update
 }

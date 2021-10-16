@@ -60,6 +60,18 @@ function deleteToLearn(req, res) {
     })
 }
 
+function edit(req, res) {
+    Song.findById(req.params.id).then(song => {
+        res.render('songs/edit', {
+            song
+        })
+    })
+    .catch(err => {
+        console.log(err);
+        res.redirect('/')
+    })
+}
+
 
 export {
     newSong as new,
@@ -70,5 +82,6 @@ export {
     indexToLearn,
     deleteSong as delete,
     deleteLearned,
-    deleteToLearn
+    deleteToLearn,
+    edit
 }

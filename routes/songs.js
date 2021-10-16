@@ -8,6 +8,7 @@ router.get('/', isLoggedIn, songsCtrl.index);
 router.post('/', isLoggedIn, songsCtrl.create);
 router.get('/learned', isLoggedIn, songsCtrl.indexLearned);
 router.get('/to-learn', isLoggedIn, songsCtrl.indexToLearn);
+router.get('/:id/edit', isLoggedIn, songsCtrl.edit)
 router.delete('/learned/:id', isLoggedIn, songsCtrl.deleteLearned);
 router.delete('/to-learn/:id', isLoggedIn, songsCtrl.deleteToLearn);
 router.delete('/:id', isLoggedIn, songsCtrl.delete);

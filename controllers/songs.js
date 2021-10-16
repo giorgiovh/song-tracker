@@ -42,6 +42,12 @@ function indexToLearn(req, res) {
     })
 }
 
+function deleteSong(req, res) {
+    Song.findByIdAndDelete(req.params.id, function(err, song){
+        res.redirect('/songs')
+    })
+}
+
 
 export {
     newSong as new,
@@ -49,5 +55,6 @@ export {
     create,
     show,
     indexLearned,
-    indexToLearn
+    indexToLearn,
+    deleteSong as delete
 }

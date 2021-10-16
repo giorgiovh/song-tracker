@@ -8,6 +8,7 @@ router.get('/', isLoggedIn, songsCtrl.index);
 router.post('/', isLoggedIn, songsCtrl.create);
 router.get('/learned', isLoggedIn, songsCtrl.indexLearned);
 router.get('/to-learn', isLoggedIn, songsCtrl.indexToLearn);
+router.delete('/:id', isLoggedIn, songsCtrl.delete)
 router.get('/:id', isLoggedIn, songsCtrl.show);
 
 function isLoggedIn(req, res, next) {

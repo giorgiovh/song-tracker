@@ -20,5 +20,16 @@
     <h3><%= `Key: ${song.key}`%> </h3>
     <p><%= song.chords %> </p>
     <a href="/songs/<%= song._id %>/edit">Edit Song</a>
+    <br><br>
+
+    <% if (song.comments.length) { %>
+        <h1>Comments</h1>
+    <% } else { %>
+        <h3>No Comments Yet</h3>
+    <% } %>
+    <input type="text" placeholder="Add a comment...">
+    <br>
+    <button type="submit">Send</button>
+
 </body>
 </html>

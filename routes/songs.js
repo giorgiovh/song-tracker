@@ -22,11 +22,6 @@ function isLoggedIn(req, res, next) {
   } else {
     res.redirect('/')
   }
-  // if (req.isAuthenticated()) next()
-  //   console.log('check complete. user authenticated');
-  //   return next();
-  // };
-  // res.redirect('/auth/google')
 }
 
 export {

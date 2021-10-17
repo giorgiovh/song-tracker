@@ -18,20 +18,12 @@ function create(req, res) {
     })
 }
 
-// function show(req, res) {
-//     Song.findById(req.params.id, function(err, song) {
-//         res.render('songs/show', {
-//             song
-//         })
-//     })
-// }
-
 function show(req, res) {
     Song.findById(req.params.id)
     .populate({
-        path: 'comments',
+        path: 'comments', // populates the comments attribute of Song with ref: Comment
         populate: {
-            path: 'author'
+            path: 'author'  // populates the author attribute of Comment with ref: Profile
         }
     })
     .then((song) => {

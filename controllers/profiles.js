@@ -9,6 +9,24 @@ function index(req, res) {
     })
 }
 
+function show(req, res) {
+    Profile.findById(req.params.id) // finds the profile
+    .then((profile) => {
+        Profile.findById(req.user.profile) // finds the user
+        .then(userProfile => {
+            res.render('profiles/show', {
+                profile,
+                userProfile
+            })
+        })
+    })
+    .catch(err => {
+        console.log(err);
+        res.redirect('/')
+    })
+}
+
 export {
-    index
+    index,
+    show
 }

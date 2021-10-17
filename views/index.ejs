@@ -9,10 +9,12 @@
       <a href="/songs">All</a>
       <a href="/songs/learned">Learned</a>
       <a href="/songs/to-learn">To Learn</a>
+      <a href="/profiles">View Users</a>
     </nav>
   <% } %>
 
   <h1>hello, <%= user ? user.profile.name : "friend" %></h1>
+  
   <% if (user?.profile.avatar) { %>
     <div>
       <img 

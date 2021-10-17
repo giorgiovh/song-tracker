@@ -12,11 +12,10 @@ function create(req, res) {
             song.comments.push(comment._id)
             song.save()
             .then(() => {
-                res.redirect(`songs/${song._id}`)
+                res.redirect(`/songs/${song._id}`)
             })
         })
     })
-
 }
 
 export {

@@ -27,6 +27,10 @@
   <h1>Latest Activity</h1>
   
   <h2>Newly Added Songs</h2>
+  <% songs.forEach(song => { %>
+      <a href="/songs/<%= song._id %>"><%= song.title %> </a>
+  <% }) %>
+
   <h2>New Comments</h2>
 
 </main>

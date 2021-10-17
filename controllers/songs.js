@@ -18,11 +18,30 @@ function create(req, res) {
     })
 }
 
+// function show(req, res) {
+//     Song.findById(req.params.id, function(err, song) {
+//         res.render('songs/show', {
+//             song
+//         })
+//     })
+// }
+
 function show(req, res) {
-    Song.findById(req.params.id, function(err, song) {
+    Song.findById(req.params.id)
+    .populate({
+        path: 'comments',
+        populate: {
+            path: 'author'
+        }
+    })
+    .then((song) => {
         res.render('songs/show', {
             song
         })
+    })
+    .catch(err => {
+        console.log(err);
+        res.redirect('/')
     })
 }
 

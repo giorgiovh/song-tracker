@@ -7,14 +7,41 @@
     <title>Song Tracker</title>
 </head>
 <body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/songs/new">Add</a>
+        <a href="/songs">All</a>
+        <a href="/songs/learned">Learned</a>
+        <a href="/songs/to-learn">To Learn</a>
+        <a href="/profiles">View Users</a>
+    </nav>
+
     <h1><%= profile.name %></h1>
+
     <table>
         <tbody>
             <tr>
                 <td>Name:</td>
                 <td><%= profile.name %> </td>
             </tr>
+            <tr>
+                <td>Avatar URL:</td>
+                <td>
+                  <a href="<%= profile.avatar %>">
+                    <%= profile.avatar.substring(0, 35) %>
+                    <% if (profile.avatar.length > 35) { %>
+                    ...
+                    <% } %>
+                  </a>
+                </td>
+            </tr>
         </tbody>
     </table>
+
+    <% if (userProfile._id.toString() === profile._id.toString()) { %>
+        <a href="/profiles/<%= profile._id %>/edit">
+            Edit Profile
+        </a>
+    <% } %>
 </body>
 </html>

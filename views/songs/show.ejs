@@ -27,9 +27,21 @@
     <% } else { %>
         <h3>No Comments Yet</h3>
     <% } %>
-    <input type="text" placeholder="Add a comment...">
-    <br>
-    <button type="submit">Send</button>
+
+    <form action="/comments/<%= song._id %>" method="post">
+        <textarea name="content" rows="3" placeholder="Add a comment..."></textarea>
+        <br>
+        <button type="submit">Send</button>
+    </form>
+
+    <% if (song?.comments.length) { %>
+        <% song.comments.forEach(comment => { %>
+            <a href="/profiles/<%= comment.author._id %>">
+                <%= comment.author.name %>
+            </a>
+            <p><%= comment.content %></p> 
+        <% }) %>
+    <% } %>
 
 </body>
 </html>

@@ -28,10 +28,24 @@
   
   <h2>Newly Added Songs</h2>
   <% songs.forEach(song => { %>
-      <a href="/songs/<%= song._id %>"><%= song.title %> </a>
+    <h3>
+      <a href="/songs/<%= song._id %>"><%= song.title %></a>
+      <%= song.artist %> 
+    </h3>
   <% }) %>
 
   <h2>New Comments</h2>
+  <% comments.forEach(comment => { %>
+   <h3>
+     <a href="/profiles/<%= comment.author._id %>">
+       <%= comment.author.name %>'s
+     </a>
+   </h3>
+   <small>comment on</small>
+   <h4>
+     <a href=""><%= comment.song %> </a>
+   </h4>
+  <% }) %>
 
 </main>
 

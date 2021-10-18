@@ -19,14 +19,14 @@
 
     <h1><%= profile.name %></h1>
 
-    <table>
+    <table class="table table-dark table-striped">
         <tbody>
             <tr>
-                <td>Name:</td>
+                <th scope="row">Name:</th>
                 <td><%= profile.name %> </td>
             </tr>
             <tr>
-                <td>Avatar URL:</td>
+                <th scope="row">Avatar URL:</th>
                 <td>
                   <a href="<%= profile.avatar %>">
                     <%= profile.avatar.substring(0, 35) %>

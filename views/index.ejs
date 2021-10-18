@@ -30,7 +30,7 @@
   <% songs.forEach(song => { %>
     <h3>
       <a href="/songs/<%= song._id %>"><%= song.title %></a>
-      <%= song.artist %> 
+      <small><%= song.artist %></small>
     </h3>
   <% }) %>
 

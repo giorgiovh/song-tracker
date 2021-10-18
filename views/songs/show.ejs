@@ -34,7 +34,7 @@
     <form action="/comments/<%= song._id %>" method="post">
         <textarea name="content" rows="3" placeholder="Add a comment..."></textarea>
         <br>
-        <button type="submit">Send</button>
+        <button type="submit" class="btn">Send</button>
     </form>
 
     <% if (song?.comments.length) { %>

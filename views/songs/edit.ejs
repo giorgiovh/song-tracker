@@ -56,6 +56,21 @@
         >
         <button type="submit">Submit</button>
     </form>
+
+    <script>
+        function selectOnlyLearned() {
+            statusEls = document.getElementsByName('status');
+            if (statusEls[1].checked === true) {
+                statusEls[1].checked = false;
+            }
+        }
+        function selectOnlyToLearn() {
+            statusEls = document.getElementsByName('status');
+            if (statusEls[0].checked === true) {
+                statusEls[0].checked = false;
+            }
+        }
+    </script>
     
 </body>
 </html>

@@ -35,18 +35,31 @@
   <% }) %>
 
   <h2>New Comments</h2>
-  <% comments.forEach(comment => { %>
-   <h3>
-     <a href="/profiles/<%= comment.author._id %>">
-       <%= comment.author.name %>'s
-     </a>
-   </h3>
-   <small>comment on</small>
-   <h4>
-     <a href="/songs/<%= comment.song?._id %>"><%= comment.song?.title %></a>
-   </h4>
-   <p><%= comment.content %> </p>
-  <% }) %>
+  <div class="container">
+    <div class="row">
+      <% comments.forEach(comment => { %>
+       <div class="col">
+         <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+           <div class="card-header">
+            <h4>
+              <a href="/profiles/<%= comment.author._id %>">
+                 <%= comment.author.name %>'s
+               </a>
+            </h4> 
+            <small>comment on</small>
+            <h4>
+              <a href="/songs/<%= comment.song?._id %>"><%= comment.song?.title %></a>
+            </h4>
+           </div>
+           <div class="card-body">
+             <p class="card-text"><%= comment.content %></p>
+           </div>
+          
+         </div>
+       </div>
+      <% }) %>
+    </div>
+  </div>
 
 </main>
 

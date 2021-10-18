@@ -43,7 +43,7 @@
    </h3>
    <small>comment on</small>
    <h4>
-     <a href=""><%= comment.song %></a>
+     <a href="/songs/<%= comment.song?._id %>"><%= comment.song?.title %></a>
    </h4>
    <p><%= comment.content %> </p>
   <% }) %>

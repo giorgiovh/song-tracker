@@ -77,6 +77,10 @@
             name="status"
             value="Learned"
             onclick="return selectOnlyLearned()"
+            <% if (song.status === "Learned") { %>
+                checked=true
+            <% } %>
+            
         >
         <label>To Learn</label>
         <input
@@ -84,6 +88,9 @@
             name="status"
             value="To Learn"
             onclick="return selectOnlyToLearn()"
+            <% if (song.status === "To Learn") { %>
+                checked=true
+            <% } %>
         >
         <button type="submit" class="btn">Submit</button>
     </form>

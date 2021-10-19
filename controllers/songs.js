@@ -9,7 +9,11 @@ function index(req, res) {
     console.log('user', req.user, 'profile', req.profile);
     Profile.findById(req.user.profile._id)
         .populate('songs')
-        .then(result => console.log(result))
+        .then(profile => {
+            res.render('songs/index', {
+                profile
+            })
+        })
 }
 
 

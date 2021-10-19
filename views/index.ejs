@@ -38,13 +38,18 @@
   <div class="container">
     <div class="row">
       <% comments.forEach(comment => { %>
-       <div class="col">
-         <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+       <div class="col-4">
+         <div class="card text-white bg-dark mb-3">
            <div class="card-header">
+              <img 
+                src="<%= comment.author.avatar %>"
+                class="img-fluid rounded-circle ms-2 mt-2 pull-left" 
+                alt="<%= comment.author.name %>'s avatar"
+              />
             <h4>
               <a href="/profiles/<%= comment.author._id %>">
                  <%= comment.author.name %>'s
-               </a>
+              </a>
             </h4> 
             <small>comment on</small>
             <h4>

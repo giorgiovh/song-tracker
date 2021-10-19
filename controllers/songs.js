@@ -6,7 +6,7 @@ function newSong(req, res) {
 }
 
 function index(req, res) {
-    console.log('user', req.user, 'profile', req.profile);
+    // console.log('user', req.user, 'profile', req.profile);
     Profile.findById(req.user.profile._id)
         .populate('songs')
         .then(profile => {
@@ -17,10 +17,18 @@ function index(req, res) {
 }
 
 
+
 function create(req, res) {
-    Song.create(req.body, function(err, song) {
-        res.redirect('/songs')
-    })
+    Song.create(req.body)
+        .then(song => {
+            Profile.findById(req.user.profile._id)
+                .then(profile => {
+                    profile.songs.push(song)
+                    profile.save(function(err) {
+                        res.redirect('/songs')
+                    })
+                })
+        })
 }
 
 function show(req, res) {

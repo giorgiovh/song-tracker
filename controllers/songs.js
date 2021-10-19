@@ -1,16 +1,17 @@
 import { Song } from './../models/song.js'
+import { Profile } from './../models/profile.js'
 
 function newSong(req, res) {
     res.render('songs/new')
 }
 
 function index(req, res) {
-    Song.find({}, function(err, songs) {
-        res.render('songs/index', {
-            songs
-        })
-    })
+    console.log('user', req.user, 'profile', req.profile);
+    Profile.findById(req.user.profile._id)
+        .populate('songs')
+        .then(result => console.log(result))
 }
+
 
 function create(req, res) {
     Song.create(req.body, function(err, song) {

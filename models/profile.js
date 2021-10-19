@@ -1,8 +1,13 @@
 import mongoose from 'mongoose'
 
-const profileSchema = new mongoose.Schema({
+const Schema = mongoose.Schema
+
+const profileSchema = new Schema({
   name: String,
   avatar: String,
+  songs: [{
+    type: Schema.Types.ObjectId, ref: 'Song'
+  }]
 }, {
   timestamps: true
 })

@@ -39,17 +39,17 @@
     </nav>
     
     <h1><%= song.title %></h1>
-    <h2><%= song.artist %></h2>
-    <h3><%= `(${song.status})` %> </h3>
-    <h3><%= `Key: ${song.key}`%> </h3>
+    <h4><%= song.artist %></h4>
+    <h5><%= `(${song.status})` %> </h5>
+    <h5><%= `Key: ${song.key}`%> </h5>
     <p><%= song.chords %> </p>
     <a href="/songs/<%= song._id %>/edit">Edit Song</a>
     <br><br>
 
     <% if (song.comments.length) { %>
-        <h1>Comments</h1>
+        <h4>Comments</h4>
     <% } else { %>
-        <h3>No Comments Yet</h3>
+        <h4>No Comments Yet</h4>
     <% } %>
 
     <form action="/comments/<%= song._id %>" method="post">

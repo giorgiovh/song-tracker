@@ -38,16 +38,18 @@
         </div>
     </nav>
 
-    <h1>Profiles</h1>
+    <h1>Users</h1>
 
     <table class="table table-dark table-striped">
         <tbody>
             <% profiles.forEach(profile => { %>
-                <td>
-                    <a href="/profiles/<%= profile._id %>">
-                        <%= profile.name %>
-                    </a>
-                </td>
+                <tr>
+                    <td>    
+                        <a href="/profiles/<%= profile._id %>">
+                            <%= profile.name %>
+                        </a>
+                    </td>
+                </tr>
             <% }) %>
         </tbody>
     </table>

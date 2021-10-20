@@ -68,14 +68,6 @@ function indexLearned(req, res) {
         })
 }
 
-// function indexToLearn(req, res) {
-//     Song.find({status: 'To Learn'}, function(err, songs) {
-//         res.render('songs/to-learn', {
-//             songs
-//         })
-//     })
-// }
-
 function indexToLearn(req, res) {
     Profile.findById(req.user.profile._id)
         .populate('songs')

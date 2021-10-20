@@ -45,19 +45,22 @@
             <tr>
                 <th>Title</th>
                 <th>Artist</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             <% profile.songs.forEach(song => { %>
-             <tr>
-                 <td><a href="/songs/<%= song._id %>"><%= song.title %></a></td>
-                 <td><%= song.artist %></td>
-                 <td>
-                    <form action="/songs/to-learn/<%= song._id %>/?_method=DELETE" method="post">
-                       <button type="submit" class="btn btn-sm">X</button>
-                   </form>
-                </td>
-            </tr>
+                <% if (song.status === 'To Learn') { %>
+                    <tr>
+                        <td><a href="/songs/<%= song._id %>"><%= song.title %></a></td>
+                        <td><%= song.artist %></td>
+                        <td>
+                            <form action="/songs/to-learn/<%= song._id %>/?_method=DELETE" method="post">
+                            <button type="submit" class="btn btn-sm">X</button>
+                        </form>
+                        </td>
+                    </tr>
+                <% } %>
             <% }) %>
         </tbody>
     </table>

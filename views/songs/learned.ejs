@@ -45,11 +45,12 @@
             <tr>
                 <th>Title</th>
                 <th>Artist</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             <% profile.songs.forEach(song => { %>
-                 <% if (song.status === 'Learned') { %>
+                <% if (song.status === 'Learned') { %>
                     <tr>
                         <td><a href="/songs/<%= song._id %>"><%= song.title %></a></td>
                         <td><%= song.artist %></td>
@@ -59,8 +60,7 @@
                             </form>
                         </td>
                     </tr>    
-                 <% } %> 
-            </tr>
+                <% } %> 
             <% }) %>
         </tbody>
     </table>

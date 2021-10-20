@@ -48,17 +48,6 @@ function show(req, res) {
     })
 }
 
-// function index(req, res) {
-//     // console.log('user', req.user, 'profile', req.profile);
-//     Profile.findById(req.user.profile._id)
-//         .populate('songs')
-//         .then(profile => {
-//             res.render('songs/index', {
-//                 profile
-//             })
-//         })
-// }
-
 
 // function indexLearned(req, res) {
 //     Song.find({status: 'Learned'}, function(err, songs) {
@@ -68,22 +57,6 @@ function show(req, res) {
 //     })
 // }
 
-
-// function indexLearned(req, res) {
-//     Profile.findById(req.user.profile._id)
-//         .populate('songs')
-//         .then(profile => {
-//             console.log('PROFILE IS', profile);
-//             Song.find({status: 'Learned'})
-//                 .then(songs => {
-//                     console.log('SONGS ARE', songs);
-//                     res.render('songs/learned', {
-//                         songs,
-//                         profile
-//                     })
-//                 })
-//         })
-// }
 
 function indexLearned(req, res) {
     Profile.findById(req.user.profile._id)
@@ -95,12 +68,22 @@ function indexLearned(req, res) {
         })
 }
 
+// function indexToLearn(req, res) {
+//     Song.find({status: 'To Learn'}, function(err, songs) {
+//         res.render('songs/to-learn', {
+//             songs
+//         })
+//     })
+// }
+
 function indexToLearn(req, res) {
-    Song.find({status: 'To Learn'}, function(err, songs) {
-        res.render('songs/to-learn', {
-            songs
+    Profile.findById(req.user.profile._id)
+        .populate('songs')
+        .then(profile => {
+            res.render('songs/to-learn', {
+                profile
+            })
         })
-    })
 }
 
 function deleteSong(req, res) {

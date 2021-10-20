@@ -40,30 +40,34 @@
       
     <h1>Songs To Learn</h1>
 
-    <table class="table table-dark table-striped">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Artist</th>
-                <th></th> <!-- added this so bootstrap would format the column header for the delete column as well-->
-            </tr>
-        </thead>
-        <tbody>
-            <% profile.songs.forEach(song => { %>
-                <% if (song.status === 'To Learn') { %>
-                    <tr>
-                        <td><a href="/songs/<%= song._id %>"><%= song.title %></a></td>
-                        <td><%= song.artist %></td>
-                        <td>
-                            <form action="/songs/to-learn/<%= song._id %>/?_method=DELETE" method="post">
-                            <button type="submit" class="btn btn-sm">X</button>
-                        </form>
-                        </td>
-                    </tr>
-                <% } %>
-            <% }) %>
-        </tbody>
-    </table>
+    <% if (profile.songs.some(song => song.status === 'To Learn')) { %>
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Artist</th>
+                    <th></th> <!-- added this so bootstrap would format the column header for the delete column as well-->
+                </tr>
+            </thead>
+            <tbody>
+                <% profile.songs.forEach(song => { %>
+                    <% if (song.status === 'To Learn') { %>
+                        <tr>
+                            <td><a href="/songs/<%= song._id %>"><%= song.title %></a></td>
+                            <td><%= song.artist %></td>
+                            <td>
+                                <form action="/songs/to-learn/<%= song._id %>/?_method=DELETE" method="post">
+                                <button type="submit" class="btn btn-sm">X</button>
+                            </form>
+                            </td>
+                        </tr>
+                    <% } %>
+                <% }) %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <h2>No songs have been added yet</h2>
+    <% } %>
     
 </body>
 </html>

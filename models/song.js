@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
-const songSchema = new Schema ({
+const songSchema = new Schema({
     title: {
         type: String
     },
@@ -21,8 +21,9 @@ const songSchema = new Schema ({
     status: {
         type: String
     },
-    comments:[{
-        type: Schema.Types.ObjectId, ref: 'Comment'
+    comments: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Comment'
     }]
 }, {
     timestamps: true

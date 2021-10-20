@@ -41,15 +41,15 @@
     <h1>Add Song</h1>
     <form action="/songs" method="post">
         <label>Title</label>
-        <input type="text" name="title">
+        <input type="text" name="title" required>
         <label>Artist</label>
-        <input type="text" name="artist">
+        <input type="text" name="artist" required>
         <label>Image URL</label>
         <input type="text" name="imageURL">
         <label>Key</label>
-        <input type="text" name="key">
+        <input type="text" name="key" required>
         <label>Chords</label>
-        <input type="text" name="chords">
+        <input type="text" name="chords" required>
         <label>Learned</label>
         <input type="checkbox" name="status" value="Learned" onclick="return selectOnlyLearned()">
         <label>To Learn</label>

@@ -31,21 +31,21 @@ function create(req, res) {
 
 function show(req, res) {
     Song.findById(req.params.id)
-    .populate({
-        path: 'comments', // populates the comments attribute of Song with ref: Comment
-        populate: {
-            path: 'author'  // populates the author attribute of Comment with ref: Profile
-        }
-    })
-    .then((song) => {
-        res.render('songs/show', {
-            song
+        .populate({
+            path: 'comments', // populates the comments attribute of Song with ref: Comment
+            populate: {
+                path: 'author'  // populates the author attribute of Comment with ref: Profile
+            }
         })
-    })
-    .catch(err => {
-        console.log(err);
-        res.redirect('/')
-    })
+            .then((song) => {
+                res.render('songs/show', {
+                    song
+                })
+            })
+            .catch(err => {
+                console.log(err);
+                res.redirect('/')
+            })
 }
 
 

@@ -41,34 +41,38 @@
         </div>
     </nav>
     
-    <h1><%= song.title %></h1>
-    <h4><%= song.artist %></h4>
-    <h5><%= `(${song.status})` %> </h5>
-    <h5><%= `Key: ${song.key}`%> </h5>
-    <p><%= song.chords %> </p>
-    <a href="/songs/<%= song._id %>/edit">Edit Song</a>
-    <br><br>
-
-    <% if (song.comments.length) { %>
-        <h4>Comments</h4>
-    <% } else { %>
-        <h4>No Comments Yet</h4>
-    <% } %>
-
-    <form action="/comments/<%= song._id %>" method="post">
-        <textarea name="content" rows="3" placeholder="Add a comment..." required></textarea>
-        <br>
-        <button type="submit" class="btn">Send</button>
-    </form>
-
-    <% if (song?.comments.length) { %>
-        <% song.comments.forEach(comment => { %>
-            <a href="/profiles/<%= comment.author._id %>">
-                <%= comment.author.name %>
-            </a>
-            <p><%= comment.content %></p> 
-        <% }) %>
-    <% } %>
+    <main class="mx-auto">
+        <div class="container">
+            <h1><%= song.title %></h1>
+            <h4><%= song.artist %></h4>
+            <h5><%= `(${song.status})` %> </h5>
+            <h5><%= `Key: ${song.key}`%> </h5>
+            <p><%= song.chords %> </p>
+            <a href="/songs/<%= song._id %>/edit">Edit Song</a>
+            <br><br>
+        
+            <% if (song.comments.length) { %>
+                <h4>Comments</h4>
+            <% } else { %>
+                <h4>No Comments Yet</h4>
+            <% } %>
+        
+            <form action="/comments/<%= song._id %>" method="post">
+                <textarea name="content" rows="3" placeholder="Add a comment..." required></textarea>
+                <br>
+                <button type="submit" class="btn">Send</button>
+            </form>
+        
+            <% if (song?.comments.length) { %>
+                <% song.comments.forEach(comment => { %>
+                    <a href="/profiles/<%= comment.author._id %>">
+                        <%= comment.author.name %>
+                    </a>
+                    <p><%= comment.content %></p> 
+                <% }) %>
+            <% } %>
+        </div>
+    </main>
 
 </body>
 </html>

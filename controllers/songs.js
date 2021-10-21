@@ -80,8 +80,6 @@ function indexToLearn(req, res) {
 }
 
 function deleteSong(req, res) {
-    console.count();
-    console.log(req.params.id);
     Song.findById(req.params.id)
         .then(song => {
             song.comments.forEach(commentId => {
@@ -97,15 +95,33 @@ function deleteSong(req, res) {
 }
 
 function deleteLearned(req, res) {
-    Song.findByIdAndDelete(req.params.id, function(err, song){
-        res.redirect('/songs/learned')
-    })
+    Song.findById(req.params.id)
+        .then(song => {
+            song.comments.forEach(commentId => {
+                Comment.findByIdAndDelete(commentId)
+                    .then(comment => {
+                    })
+                    .catch(err => console.log(err))
+            });
+            Song.findByIdAndDelete(req.params.id, function(err, song){
+                res.redirect('/songs/learned')
+            })
+        })
 }
 
 function deleteToLearn(req, res) {
-    Song.findByIdAndDelete(req.params.id, function(err, song){
-        res.redirect('/songs/to-learn')
-    })
+    Song.findById(req.params.id)
+        .then(song => {
+            song.comments.forEach(commentId => {
+                Comment.findByIdAndDelete(commentId)
+                    .then(comment => {
+                    })
+                    .catch(err => console.log(err))
+            });
+            Song.findByIdAndDelete(req.params.id, function(err, song){
+                res.redirect('/songs/to-learn')
+            })
+        })
 }
 
 function edit(req, res) {

@@ -1,5 +1,6 @@
 import { Song } from './../models/song.js'
 import { Profile } from './../models/profile.js'
+import { Comment } from './../models/comment.js'
 
 function newSong(req, res) {
     res.render('songs/new')
@@ -79,9 +80,20 @@ function indexToLearn(req, res) {
 }
 
 function deleteSong(req, res) {
-    Song.findByIdAndDelete(req.params.id, function(err, song){
-        res.redirect('/songs')
-    })
+    console.count();
+    console.log(req.params.id);
+    Song.findById(req.params.id)
+        .then(song => {
+            song.comments.forEach(commentId => {
+                Comment.findByIdAndDelete(commentId)
+                    .then(comment => {
+                    })
+                    .catch(err => console.log(err))
+            });
+            Song.findByIdAndDelete(req.params.id, function(err, song){
+                res.redirect('/songs')
+            })
+        })
 }
 
 function deleteLearned(req, res) {

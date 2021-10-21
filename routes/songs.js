@@ -16,7 +16,6 @@ router.delete('/:id', isLoggedIn, songsCtrl.delete);
 router.get('/:id', isLoggedIn, songsCtrl.show);
 
 function isLoggedIn(req, res, next) {
-  console.log('check if user is authenticated', req.user);
   if (req.isAuthenticated()) {
     next()    
   } else {

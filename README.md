@@ -1,14 +1,17 @@
 # Song Tracker
 
 An app that lets you track songs you've learned, want to learn, or just want to save.
+
+## Link to App
+https://song-tracker-app.herokuapp.com/
 ## Instructions
 
 Use the navigation bar at the top to:
-    - Add a song
-    - View your learned songs
-    - View songs you want to learn
-    - View all your songs
-
+    * Add a song
+    * View all your songs
+    * View your learned songs
+    * View songs you want to learn
+    
 To view the chords of a song, click on the song title.
 ## Technologies Used
 

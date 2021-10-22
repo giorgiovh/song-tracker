@@ -7,7 +7,6 @@ function newSong(req, res) {
 }
 
 function index(req, res) {
-    // console.log('user', req.user, 'profile', req.profile);
     Profile.findById(req.user.profile._id)
         .populate('songs')
         .then(profile => {

@@ -37,35 +37,39 @@
         </div>
     </nav>
       
-    <h1>Learned Songs</h1>
-
-    <% if (profile.songs.some(song => song.status === 'Learned')) { %>
-        <table class="table table-dark table-striped">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Artist</th>
-                    <th></th> <!-- added this so bootstrap would format the column header for the delete column as well-->
-                </tr>
-            </thead>
-            <tbody>
-                <% profile.songs.forEach(song => { %>
-                    <% if (song.status === 'Learned') { %>
+    <main class="mx-auto">
+        <div class="container"> 
+            <h1>Learned Songs</h1>
+        
+            <% if (profile.songs.some(song => song.status === 'Learned')) { %>
+                <table class="table table-dark table-striped">
+                    <thead>
                         <tr>
-                            <td><a href="/songs/<%= song._id %>"><%= song.title %></a></td>
-                            <td><%= song.artist %></td>
-                            <td>
-                                <form action="/songs/learned/<%= song._id %>/?_method=DELETE" method="post">
-                                    <button type="submit" class="btn btn-sm">X</button>
-                                </form>
-                            </td>
-                        </tr>    
-                    <% } %> 
-                <% }) %>
-            </tbody>
-        </table>
-    <% } else { %>
-        <h2>No songs have been added yet</h2>
-    <% } %>
+                            <th>Title</th>
+                            <th>Artist</th>
+                            <th></th> <!-- added this so bootstrap would format the column header for the delete column as well-->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% profile.songs.forEach(song => { %>
+                            <% if (song.status === 'Learned') { %>
+                                <tr>
+                                    <td><a href="/songs/<%= song._id %>"><%= song.title %></a></td>
+                                    <td><%= song.artist %></td>
+                                    <td>
+                                        <form action="/songs/learned/<%= song._id %>/?_method=DELETE" method="post">
+                                            <button type="submit" class="btn btn-sm">X</button>
+                                        </form>
+                                    </td>
+                                </tr>    
+                            <% } %> 
+                        <% }) %>
+                    </tbody>
+                </table>
+            <% } else { %>
+                <h2>No songs have been added yet</h2>
+            <% } %>
+        </div>
+    </main>
 </body>
 </html>

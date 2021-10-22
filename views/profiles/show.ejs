@@ -5,14 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="./../stylesheets/style.css">
     <title>Song Tracker</title>
 </head>
 <body>
-    <style type="text/css">
-        body { background: #202020 !important}
-        body { color: #F0F0F0 !important}
-    </style>
-    
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
@@ -40,36 +36,31 @@
             </ul>
         </div>
     </nav>
-
-    <h1><%= profile.name %></h1>
-
-    <table class="table table-dark table-striped">
-        <tbody>
-            <tr>
-                <th scope="row">Name:</th>
-                <td><%= profile.name %> </td>
-            </tr>
-            <tr>
-                <th scope="row">Avatar URL:</th>
-                <td>
-                  <a href="<%= profile.avatar %>">
-                    <%= profile.avatar.substring(0, 35) %>
-                    <% if (profile.avatar.length > 35) { %>
-                    ...
-                    <% } %>
-                  </a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-
-    <!-- <% if (userProfile._id.toString() === profile._id.toString()) { %>
-        <a href="/profiles/<%= profile._id %>/edit">
-            Edit Profile
-        </a>
-        <a href="/auth/logout">
-            Logout
-        </a>
-    <% } %> -->
+    
+    <main class="mx-auto">
+        <div class="container">
+            <h1><%= profile.name %></h1>
+            
+            <table class="table table-dark table-striped">
+                <tbody>
+                    <tr>
+                        <th scope="row">Name:</th>
+                        <td><%= profile.name %> </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Avatar URL:</th>
+                        <td>
+                          <a href="<%= profile.avatar %>">
+                            <%= profile.avatar.substring(0, 35) %>
+                            <% if (profile.avatar.length > 35) { %>
+                            ...
+                            <% } %>
+                          </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
 </body>
 </html>

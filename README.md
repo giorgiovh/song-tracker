@@ -1,6 +1,6 @@
 # Song Tracker
 
-An app that lets you track songs you've learned, want to learn, or just want to save. This app is incredibly useful for experienced and casual musicians alike. As a guitar player, I've always wanted an app that makes it easy to store song chords (for covers or originals) and that lets you add comments on what you like or find interesting about the song. 
+An app that lets you track songs you've learned, want to learn, or just want to save. This app is incredibly useful for experienced and casual musicians alike. As a guitar player, I've always wanted an app that makes it easy to store song chords (for covers or originals) and lets you add comments. Finally, I have the tool I've been looking for. I hope you find this as useful as I do. Rock on my friends!
 
 ## Getting Started
 Link to app: https://song-tracker-app.herokuapp.com/

@@ -7,10 +7,10 @@ https://song-tracker-app.herokuapp.com/
 ## Instructions
 
 Use the navigation bar at the top to:
-    * Add a song
-    * View all your songs
-    * View your learned songs
-    * View songs you want to learn
+* Add a song
+* View all your songs
+* View your learned songs
+* View songs you want to learn
     
 To view the chords of a song, click on the song title.
 ## Technologies Used

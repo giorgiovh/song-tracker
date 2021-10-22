@@ -13,7 +13,7 @@ router.put('/:id', isLoggedIn, songsCtrl.update);
 router.delete('/learned/:id', isLoggedIn, songsCtrl.deleteLearned);
 router.delete('/to-learn/:id', isLoggedIn, songsCtrl.deleteToLearn);
 router.delete('/:id', isLoggedIn, songsCtrl.delete);
-router.get('/:id', isLoggedIn, songsCtrl.show);
+router.get('/:id', songsCtrl.show);
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {

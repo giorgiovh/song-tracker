@@ -11,6 +11,9 @@ Use the navigation bar at the top to:
 * View all your songs
 * View your learned songs
 * View songs you want to learn
+
+![](images/../public/images/song-tracker-screenshot-1.png)
+![](images/../public/images/song-tracker-screenshot-2.png)
     
 To view the chords of a song, click on the song title.
 ## Technologies Used

@@ -9,9 +9,6 @@ const songSchema = new Schema({
     artist: {
         type: String
     },
-    imageUrl: {
-        type: String
-    },
     key: {
         type: String
     },

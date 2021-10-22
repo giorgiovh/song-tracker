@@ -51,28 +51,25 @@
 
   <main class="mx-auto">
     <div class="container">
-      <h1>hello, <%= user ? user.profile.name : "friend" %></h1>
-      
-      <% if (user?.profile.avatar) { %>
-        <div>
-          <img 
-            src="<%= user.profile.avatar %>" 
-            alt="<%= user.profile.name %> avatar"
-          >
+      <div class="container h-100">
+        <div class="col-7 mx-auto">
+          <div>
+            <h1>Hello there, <%= user ? `${user.profile.name}!` : "friend" %></h1>
+
+            <h2>Latest Activity</h2>
+            
+            <h3>Newly Added Songs</h3>
+            <% songs.forEach(song => { %>
+              <h4>
+                <a href="/songs/<%= song._id %>"><%= song.title %></a>
+                <small><%= song.artist %></small>
+              </h4>
+            <% }) %>
+          
+            <h3>New Comments</h3>
+          </div>
         </div>
-      <% } %>
-    
-      <h1>Latest Activity</h1>
-      
-      <h2>Newly Added Songs</h2>
-      <% songs.forEach(song => { %>
-        <h3>
-          <a href="/songs/<%= song._id %>"><%= song.title %></a>
-          <small><%= song.artist %></small>
-        </h3>
-      <% }) %>
-    
-      <h2>New Comments</h2>
+      </div>
       <div class="container">
         <div class="row">
           <% comments.forEach(comment => { %>

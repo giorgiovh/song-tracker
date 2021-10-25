@@ -10,10 +10,6 @@
 </head>
 <body>
   
-  <% if (!user) { %>
-    <link rel="stylesheet" href="/stylesheets/siwg.css">
-  <% } %>
-
   <% if (user) { %>   
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -43,11 +39,15 @@
         </div>
     </nav>
   <% } else { %>
-    <a href="/auth/google" class="siwg-link">
-      <button type="submit" class="siwg">
-        <img id="siwg-image" alt="Sign in with Google" />
-      </button>
-    </a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/auth/google">Sign in with Google</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
   <% } %> 
 
   <main class="mx-auto">

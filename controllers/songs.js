@@ -17,13 +17,18 @@ function index(req, res) {
 }
 
 function create(req, res) {
+    // Add postedBy info to req.body (for when we use Song.create(req.body)
+    req.body.postedBy = req.user.profile._id
     Song.create(req.body)
         .then(song => {
+            console.log('****THE NEW SONG IS****', song);
+            console.log('****THE POSTEDBY IS****', song.postedBy);
+            console.log('****THE REQ.USER._ID IS****', req.user.profile._id);
             Profile.findById(req.user.profile._id)
                 .then(profile => {
                     profile.songs.push(song)
                     profile.save(function(err) {
-                        res.redirect('/songs')
+                        res.redirect('/songs', {})
                     })
                 })
         })

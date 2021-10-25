@@ -21,7 +21,11 @@ const songSchema = new Schema({
     comments: [{
         type: Schema.Types.ObjectId,
         ref: 'Comment'
-    }]
+    }],
+    postedBy: {
+        type: Schema.Types.ObjectId,
+        ref: 'Profile'
+    }
 }, {
     timestamps: true
 })

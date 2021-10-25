@@ -44,9 +44,11 @@
             <h5><%= `(${song.status})` %> </h5>
             <h5><%= `Key: ${song.key}`%> </h5>
             <p><%= song.chords %> </p>
-            <a href="/songs/<%= song._id %>/edit">Edit Song</a>
+            <% if (String(song.postedBy) == String(user?.profile._id)) { %>
+                <a href="/songs/<%= song._id %>/edit">Edit Song</a>
+            <% } %>
             <br><br>
-        
+            
             <% if (song.comments.length) { %>
                 <h4>Comments</h4>
             <% } else { %>

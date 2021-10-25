@@ -21,9 +21,6 @@ function create(req, res) {
     req.body.postedBy = req.user.profile._id
     Song.create(req.body)
         .then(song => {
-            console.log('****THE NEW SONG IS****', song);
-            console.log('****THE POSTEDBY IS****', song.postedBy);
-            console.log('****THE REQ.USER._ID IS****', req.user.profile._id);
             Profile.findById(req.user.profile._id)
                 .then(profile => {
                     profile.songs.push(song)
@@ -45,7 +42,8 @@ function show(req, res) {
         })
             .then((song) => {
                 res.render('songs/show', {
-                    song
+                    song,
+                    user: req.user
                 })
             })
             .catch(err => {

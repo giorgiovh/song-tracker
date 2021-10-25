@@ -28,9 +28,10 @@ function create(req, res) {
                 .then(profile => {
                     profile.songs.push(song)
                     profile.save(function(err) {
-                        res.redirect('/songs', {})
+                        res.redirect('/songs')
                     })
                 })
+                .catch(err => console.log(err))
         })
 }
 

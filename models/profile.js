@@ -6,7 +6,8 @@ const profileSchema = new Schema({
   name: String,
   avatar: String,
   songs: [{
-    type: Schema.Types.ObjectId, ref: 'Song'
+    type: Schema.Types.ObjectId, 
+    ref: 'Song'
   }]
 }, {
   timestamps: true
